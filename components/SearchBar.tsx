@@ -15,8 +15,9 @@ const SearchBar = () => {
   useEffect(() => {
     const test = new URLSearchParams(window.location.search);
     const searchParamsObject: searchParamsInterface = {};
+    const entriesArray = Array.from(test.entries());
 
-    for (const [key, value] of test.entries()) {
+    for (const [key, value] of entriesArray) {
       searchParamsObject[key] = value;
     }
 
