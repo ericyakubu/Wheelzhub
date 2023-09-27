@@ -18,8 +18,10 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const [selected, setSelected] = useState<OptionsProps>(options[0]);
   const router = useRouter();
 
+  const entriesArray = Array.from(test.entries());
+
   useEffect(() => {
-    for (const [key, value] of test.entries()) {
+    for (const [key, value] of entriesArray) {
       searchParamsObject[key] = value;
     }
 
