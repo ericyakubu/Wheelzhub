@@ -43,6 +43,7 @@ export const generateCarImageUrl = (
   url.searchParams.append("zoomType", "fullscreen");
   url.searchParams.append("modelYear", `${year}`);
   url.searchParams.append("angle", `${angle}`);
+
   return `${url}`;
 };
 

@@ -1,10 +1,8 @@
-"use client";
 import React from "react";
 import Image from "next/image";
 import { CustomButton } from ".";
 
-const Hero: React.FC = () => {
-  const handleScroll = () => {};
+const Hero = () => {
   return (
     <div className="hero">
       <div className="flex-1 pt-36 padding-x">
@@ -15,11 +13,12 @@ const Hero: React.FC = () => {
           Streamline your car rental experience with our effortless booking
           process
         </p>
-        <CustomButton
-          title="Explore Cars"
-          containerStyles="bg-primary-blue text-white rounded-full mt-10"
-          handleClick={handleScroll}
-        />
+        <a href="#cars">
+          <CustomButton
+            title="Explore Cars"
+            containerStyles="bg-primary-blue text-white rounded-full mt-10"
+          />
+        </a>
       </div>
       <div className="hero__image-container">
         <div className="hero__image">

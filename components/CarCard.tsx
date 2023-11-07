@@ -10,19 +10,7 @@ interface Props {
 }
 
 const CarCard = ({ car }: Props) => {
-  const {
-    city_mpg,
-    combination_mpg,
-    cylinders,
-    displacement,
-    drive,
-    fuel_type,
-    highway_mpg,
-    make,
-    model,
-    transmission,
-    year,
-  } = car;
+  const { city_mpg, drive, make, model, transmission, year } = car;
   const carRent = calculateCarRent(city_mpg, year);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -40,9 +28,7 @@ const CarCard = ({ car }: Props) => {
       </div>
 
       <p className="flex mt-6 text-[32px] font-extrabold">
-        <span className="self-start text-[14px] font-semibold">
-          $
-        </span>
+        <span className="self-start text-[14px] font-semibold">$</span>
         {carRent}
         <span className="self-end text-[14px] font-medium">/day</span>
       </p>
@@ -71,12 +57,7 @@ const CarCard = ({ car }: Props) => {
             </p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
-            <Image
-              src="/tire.svg"
-              width={20}
-              height={20}
-              alt="tire"
-            />
+            <Image src="/tire.svg" width={20} height={20} alt="tire" />
             <p className="text-[14px]">{drive.toUpperCase()}</p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">

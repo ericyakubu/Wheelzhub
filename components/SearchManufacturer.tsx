@@ -21,67 +21,73 @@ const SearchManufacturer = ({
         );
 
   return (
-    <div className="search-manufacturer">
-      <Combobox value={manufacturer} onChange={setManufacturer}>
-        <div className="relative w-full">
-          <Combobox.Button className="absolute top-[14px]">
-            <Image
-              src="/car-logo.svg"
-              alt="car logo"
-              width={20}
-              height={20}
-              className="ml-4"
+    <>
+      <div className="search-manufacturer relative">
+        <Combobox value={manufacturer} onChange={setManufacturer}>
+          <div className="relative w-full">
+            <Combobox.Button className="absolute top-[14px]">
+              <Image
+                src="/car-logo.svg"
+                alt="car logo"
+                width={20}
+                height={20}
+                className="ml-4"
+              />
+            </Combobox.Button>
+            <Combobox.Input
+              className="search-manufacturer__input"
+              placeholder="Volkswagen"
+              displayValue={(manufacturer: string) => manufacturer}
+              onChange={(e) => setQuery(e.target.value)}
             />
-          </Combobox.Button>
-          <Combobox.Input
-            className="search-manufacturer__input"
-            placeholder="Volkswagen"
-            displayValue={(manufacturer: string) => manufacturer}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <Transition
-            as={Fragment}
-            leave="transition ease-in duration-100"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-            afterLeave={() => setQuery("")}
-          >
-            <Combobox.Options>
-              {filteredManufacurers.map((item) => (
-                <Combobox.Option
-                  key={item}
-                  value={item}
-                  className={({ active }) =>
-                    `relative search_manufacturer__option ${
-                      active ? `bg-primary-blue text-white` : `text-grey-900`
-                    }`
-                  }
-                >
-                  {({ selected, active }) => (
-                    <>
-                      <span
-                        className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
-                        }`}
-                      >
-                        {item}
-                      </span>
-                      {selected ? (
-                        <span
-                          className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                            active ? "text-white" : "text-teal-600"
-                          }`}
-                        ></span>
-                      ) : null}
-                    </>
-                  )}
-                </Combobox.Option>
-              ))}
-            </Combobox.Options>
-          </Transition>
-        </div>
-      </Combobox>
-    </div>
+            <div className="absolute z-50 rounded-b-md shadow-2xl w-full max-h-40 overflow-y-auto bg-white scrollbar">
+              <Transition
+                as={Fragment}
+                leave="transition ease-in duration-100"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+                afterLeave={() => setQuery("")}
+              >
+                <Combobox.Options>
+                  {filteredManufacurers.map((item) => (
+                    <Combobox.Option
+                      key={item}
+                      value={item}
+                      className={({ active }) =>
+                        `relative search_manufacturer__option cursor-pointer p-1 border-b ${
+                          active
+                            ? `bg-primary-blue text-white`
+                            : `text-grey-900`
+                        }`
+                      }
+                    >
+                      {({ selected, active }) => (
+                        <>
+                          <span
+                            className={`block truncate ${
+                              selected ? "font-medium" : "font-normal"
+                            }`}
+                          >
+                            {item}
+                          </span>
+                          {selected ? (
+                            <span
+                              className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                                active ? "text-white" : "text-teal-600"
+                              }`}
+                            ></span>
+                          ) : null}
+                        </>
+                      )}
+                    </Combobox.Option>
+                  ))}
+                </Combobox.Options>
+              </Transition>
+            </div>
+          </div>
+        </Combobox>
+      </div>
+    </>
   );
 };
 

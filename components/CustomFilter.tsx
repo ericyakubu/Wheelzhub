@@ -1,7 +1,6 @@
 "use client";
 import {
   CustomFilterProps,
-  FilterProps,
   OptionsProps,
   searchParamsInterface,
 } from "@/types";
@@ -9,7 +8,7 @@ import { updateSearchParams } from "@/utils";
 import { Listbox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { Fragment, use, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const test = new URLSearchParams(window.location.search);

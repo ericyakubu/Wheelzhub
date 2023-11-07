@@ -8,9 +8,11 @@ import SearchManufacturer from "./SearchManufacturer";
 import CarCard from "./CarCard";
 import CarDetails from "./CarDetails";
 import ShowMore from "./ShowMore";
+import Cars from "./Cars";
 
 export {
   Hero,
+  Cars,
   CustomButton,
   Navbar,
   Footer,
