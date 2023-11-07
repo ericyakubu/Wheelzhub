@@ -11,15 +11,14 @@ import { useRouter } from "next/navigation";
 import React, { Fragment, useEffect, useState } from "react";
 
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
-  const test = new URLSearchParams(window.location.search);
   const searchParamsObject: searchParamsInterface = {};
 
   const [selected, setSelected] = useState<OptionsProps>(options[0]);
   const router = useRouter();
 
-  const entriesArray = Array.from(test.entries());
-
   useEffect(() => {
+    const test = new URLSearchParams(window.location.search);
+    const entriesArray = Array.from(test.entries());
     for (const [key, value] of entriesArray) {
       searchParamsObject[key] = value;
     }
@@ -31,7 +30,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
 
       setSelected({ title: val, value: val });
     }
-  }, []);
+  });
 
   const handleUpdateParams = (e: { title: string; value: string }) => {
     let newPathName;
