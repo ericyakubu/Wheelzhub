@@ -89,7 +89,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     </div>
                   </div>
 
-                  <div className="flex-1 flex flex-col gap-2 overflow-y-auto max-h-full w-auto scrollbar">
+                  <div className="flex-1 flex flex-col gap-2 overflow-y-auto max-h-full w-auto scrollbar pr-3">
                     <h2 className="font-semibold text-xl capitalize">
                       {car.make} {car.model}
                     </h2>
@@ -103,7 +103,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                           <h4 className="text-grey capitalize">
                             {key.split("_").join(" ")}
                           </h4>
-                          <p className="text-black-100 font-semibold">
+                          <p className="text-black-100 font-semibold capitalize">
                             {value}
                           </p>
                         </div>
